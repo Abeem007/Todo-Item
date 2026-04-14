@@ -6,12 +6,12 @@ This project focuses on testability, accessibility, and clean UI design, followi
 
 ### Features
 Fully responsive (320px → 1200px)
-✅ Accessible (keyboard navigation, ARIA labels, semantic HTML)
-✅ Dynamic time remaining calculation
-✅ Task completion toggle (updates UI state)
-✅ Priority & status indicators
-✅ Tags (work, urgent)
-✅ Edit & Delete actions (mock functionality)
+* Accessible (keyboard navigation, ARIA labels, semantic HTML)
+* Dynamic time remaining calculation
+* Task completion toggle (updates UI state)
+* Priority & status indicators
+* Tags (work, urgent)
+* Edit & Delete actions (mock functionality)
 
 ### Testability
 
@@ -32,13 +32,13 @@ Updates automatically every 60 seconds.
 * ARIA labels for screen readers
 
 ### Responsiveness
-Mobile: stacked layout, full-width buttons
-Desktop: centered card (max-width ~500px)
+* Mobile: stacked layout, full-width buttons
+* Desktop: centered card (max-width ~500px)
 
 ### Tech Stack
-HTML5
-CSS3 (Flexbox + Media Queries)
-Vanilla JavaScript
+* HTML5
+* CSS3 (Flexbox + Media Queries)
+* Vanilla JavaScript
 
 ### Author
 Built by Bimbola
