@@ -19,11 +19,11 @@ This project now extends a basic todo card into a more stateful, dynamic compone
 
 ### New Edit Mode
 * Click Edit to enter edit mode
-* Update:
-** Title
-** Description
-** Priority
-** Due date
+#### Update:
+ * Title
+ * Description
+ * Priority
+ *  Due date
 * Save updates the card
 * Cancel restores previous values
 
