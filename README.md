@@ -2,28 +2,57 @@
 
 A responsive, accessible Todo/Task Card built with HTML, CSS, and JavaScript.
 
-This project focuses on testability, accessibility, and clean UI design, following strict requirements for automated testing.
+This project now extends a basic todo card into a more stateful, dynamic component, focusing on testability, accessibility, and UI behavior .
 
 ### Features
 Fully responsive (320px → 1200px)
+* New Edit actions 
 * Accessible (keyboard navigation, ARIA labels, semantic HTML)
-* Dynamic time remaining calculation
-* Task completion toggle (updates UI state)
+* Added dynamic time remaining calculation.(now updates every 60sec)
+* Added editable task (title, description, priority, due date)
+* New feature to expand / collapse long descriptions
+* Task completion toggle (now syncs with status)
+* New Overdue detection with visual feedback
 * Priority & status indicators
 * Tags (work, urgent)
-* Edit & Delete actions (mock functionality)
+* Fully responsive (320px → 1200px)
+
+### New Edit Mode
+* Click Edit to enter edit mode
+* Update:
+** Title
+** Description
+** Priority
+** Due date
+* Save updates the card
+* Cancel restores previous values
+
+### New Status Logic
+* Checkbox → sets status to Done
+* Status control → updates checkbox automatically
+* Unchecking after Done → reverts to Pending
+* Status is always synced across:
+** Checkbox
+** Status display
+** Status control
 
 ### Testability
 
-All required elements include exact data-testid attributes for automated testing
+All required elements include exact data-testid attributes for automated testing.
 
-### Time Remaining Logic
+### Time Management
 
-The app calculates time remaining based on a fixed due date and displays user-friendly messages such as:
+Displays dynamic time states such as:
 
-* “Due in 3 days”
-* “Due tomorrow”
-Updates automatically every 60 seconds.
+* “Due in 2 days”
+* “Due in 3 hours”
+* “Overdue by 1 hour”
+
+#### Additional behavior:
+
+* Updates every 60 seconds
+* Shows Overdue indicator when past due date
+* When task is Done → displays "Completed" and stops updating
 
 ### Accessibility
 * Semantic HTML (article, time, button, label)
