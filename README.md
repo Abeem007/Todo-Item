@@ -5,7 +5,7 @@ A responsive, accessible Todo/Task Card built with HTML, CSS, and JavaScript.
 This project now extends a basic todo card into a more stateful, dynamic component, focusing on testability, accessibility, and UI behavior .
 
 ### Features
-Fully responsive (320px → 1200px)
+
 * New Edit actions 
 * Accessible (keyboard navigation, ARIA labels, semantic HTML)
 * Added dynamic time remaining calculation.(now updates every 60sec)
