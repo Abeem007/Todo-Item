@@ -20,11 +20,11 @@ This project now extends a basic todo card into a more stateful, dynamic compone
 ### New Edit Mode
 * Click Edit to enter edit mode
 #### Update:
- * Title
- * Description
- * Priority
- *  Due date
-* Save updates the card
+  * Title
+  * Description
+  * Priority
+  *  Due date
+*  Save updates the card
 * Cancel restores previous values
 
 ### New Status Logic
@@ -32,9 +32,9 @@ This project now extends a basic todo card into a more stateful, dynamic compone
 * Status control → updates checkbox automatically
 * Unchecking after Done → reverts to Pending
 * Status is always synced across:
-** Checkbox
-** Status display
-** Status control
+- Checkbox
+- Status display
+- Status control
 
 ### Testability
 
