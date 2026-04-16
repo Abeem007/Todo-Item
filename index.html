@@ -7,16 +7,55 @@
     <title>Todo Card</title>
     <link rel="stylesheet" href="/index.css" />
   </head>
-  <body class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-    <article data-testid="test-todo-card" aria-labelledby="todo-title">
-      <div class="card-header">
-        <div class="text-block">
-          <h2 data-testid="test-todo-title" id="todo-title">Onboarding Flow</h2>
-          <p data-testid="test-todo-description">
-            Update new user Onboarding screen to show latest brand update.
-          </p>
-        </div>
-        <div class="checkbox-wrapper">
+   <body>
+    <article
+      data-testid="test-todo-card"
+      class="priority-high"
+      aria-labelledby="todo-title"
+    >
+      <div class="view-section" id="view-section">
+        <div class="card-header">
+          <div
+            data-testid="test-todo-priority-indicator"
+            class="priority-dot high"
+            aria-label="Priority: High"
+          ></div>
+
+          <div class="text-block">
+            <h2 id="todo-title" data-testid="test-todo-title">
+              Onboarding Flow
+            </h2>
+
+            <div
+              data-testid="test-todo-collapsible-section"
+              id="collapsible-section"
+              class="collapsed"
+              aria-labelledby="expand-toggle"
+            >
+              <p data-testid="test-todo-description" id="todo-description">
+                Update new user onboarding screens to align with the latest
+                brand guidelines and significantly improve step-by-step clarity
+                for mobile users. This includes new illustrations, revised copy,
+                and updated progress indicators across all five onboarding
+                steps.
+              </p>
+            </div>
+
+            <button
+              data-testid="test-todo-expand-toggle"
+              id="expand-toggle"
+              aria-expanded="false"
+              aria-controls="collapsible-section"
+              onclick="handleExpand(this)"
+              aria-label="Expand description"
+            >
+            
+             <img src="/images//down_12128384.png" alt="dropdown-arrow"  aria-hidden="true"
+                id="expand-icon">
+              <span id="expand-label">Show more</span>
+            </button>
+          </div>
+
           <label
             for="todo-complete"
             class="checkbox-label"
@@ -24,73 +63,195 @@
           >
             <input
               type="checkbox"
-              data-testid="test-todo-complete-toggle"
               id="todo-complete"
-              onchange="handleToggle(this)"
+              data-testid="test-todo-complete-toggle"
+              onchange="handleCheckbox(this)"
             />
           </label>
         </div>
-      </div>
-      <div class="badges">
-        <span
-          data-testid="test-todo-priority"
-          class="badge badge-red"
-          aria-label="Priority-High"
-          >High</span
-        >
-        <span
-          id="status-badge"
-          data-testid="test-todo-status"
-          aria-label="Status: In Progress"
-          class="badge badge-blue"
-          >In Progress</span
-        >
+
+        <div class="badges">
+          <span
+            data-testid="test-todo-priority"
+            id="priority-badge"
+            class="badge badge-red"
+            aria-label="Priority: High"
+            >High</span
+          >
+
+          <span
+            id="status-badge"
+            data-testid="test-todo-status"
+            class="badge badge-blue"
+            aria-label="Status: In Progress"
+            >In Progress</span
+          >
+        </div>
+
+        <div class="status-control-wrap">
+          <label id="status-control-label">Status</label>
+          <div
+            data-testid="test-todo-status-control"
+            role="group"
+            aria-labelledby="status-control-label"
+          >
+            <button
+              class="status-btn"
+              data-status="Pending"
+              onclick="handleStatusBtn(this)"
+            >
+              Pending
+            </button>
+            <button
+              class="status-btn active-inprogress"
+              data-status="In Progress"
+              onclick="handleStatusBtn(this)"
+            >
+              In Progress
+            </button>
+            <button
+              class="status-btn"
+              data-status="Done"
+              onclick="handleStatusBtn(this)"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+
+        <div class="dates">
+          <time
+            data-testid="test-todo-due-date"
+            id="due-date-display"
+            datetime="2026-04-20T18:00:00Z"
+            ><span class="due-label">Due</span> Apr 20, 2026</time
+          >
+
+          <time
+            id="time-remaining"
+            data-testid="test-todo-time-remaining"
+            datetime="2026-04-20T18:00:00Z"
+            aria-live="polite"
+            >Calculating…</time
+          >
+
+          <span
+            data-testid="test-todo-overdue-indicator"
+            id="overdue-indicator"
+            role="status"
+            aria-label="This task is overdue"
+          >
+           <img src="/images//icons8-overdue-50.png" alt="overdue-logo">
+            Overdue
+          </span>
+        </div>
+
+        <ul role="list" data-testid="test-todo-tags">
+          <li data-testid="test-todo-tag-work">Work</li>
+          <li data-testid="test-todo-tag-urgent">Urgent</li>
+        </ul>
+
+        <div class="actions">
+          <button
+            id="edit-btn"
+            data-testid="test-todo-edit-button"
+            aria-label="Edit task"
+            class="btn btn-edit"
+            onclick="openEditMode()"
+          >
+           <img src="/images//pen_10337458.png" alt="edit-icon">
+            Edit
+          </button>
+
+          <button
+            data-testid="test-todo-delete-button"
+            aria-label="Delete task"
+            class="btn btn-delete"
+            onclick="
+              console.log('delete clicked');
+              alert('Delete clicked');
+            "
+          >
+            <img src="/images//delete_14133943.png" alt="delete-icon">
+            Delete
+          </button>
+        </div>
       </div>
 
-      <div class="dates">
-        <time datetime="2026-04-20T18:00:00Z" data-testid="test-todo-due-date">
-          <span class="due-label"> Due </span> Apr 20, 2026</time
-        >
-        <br />
-        <time
-          id="time-remaining"
-          data-testid="test-todo-time-remaining"
-          datetime="2026-04-20T18:00:00Z"
-          aria-live="polite"
-          >Calculating...</time
-        >
-      </div>
+      <form
+        data-testid="test-todo-edit-form"
+        id="edit-form"
+        onsubmit="saveEdit(event)"
+        novalidate
+        aria-label="Edit task"
+      >
+        <div class="field-group">
+          <label for="edit-title">Title</label>
+          <input
+            type="text"
+            id="edit-title"
+            data-testid="test-todo-edit-title-input"
+            placeholder="Task title"
+            required
+          />
+        </div>
 
-      <ul role="list" data-testid="test-todo-tags">
-        <li data-testid="test-todo-tag-work">Work</li>
-        <li data-testid="test-todo-tag-urgent">Urgent</li>
-      </ul>
-      <div class="actions">
-        <button
-          data-testid="test-todo-edit-button"
-          onclick="
-            console.log('edit clicked');
-            alert('Edit clicked');
-          "
-          aria-label="Edit task"
-          class="btn btn-edit"
+        <div class="field-group">
+          <label for="edit-description">Description</label>
+          <textarea
+            id="edit-description"
+            data-testid="test-todo-edit-description-input"
+            rows="3"
+            placeholder="Task description"
+          ></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="field-group">
+            <label for="edit-priority">Priority</label>
+            <select
+              id="edit-priority"
+              data-testid="test-todo-edit-priority-select"
+            >
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High" selected>High</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="edit-due-date">Due date</label>
+            <input
+              type="datetime-local"
+              id="edit-due-date"
+              data-testid="test-todo-edit-due-date-input"
+            />
+          </div>
+        </div>
+
+        <div
+          class="actions"
+          style="padding-top: 0; border-top: none; margin-top: 0.25rem"
         >
-          <img src="/images/pen_10337458.png" alt="edit-pen" class="w-4 h-4" />
-          Edit
-        </button>
-        <button
-          data-testid="test-todo-delete-button"
-          aria-label="Delete task"
-          class="btn btn-delete"
-          onclick="
-            console.log('delete clicked');
-            alert('Delete clicked');
-          "
-        >
-          <img src="/images/delete_14133943.png" alt="delete" class="w-4 h-4" />
-          Delete
-        </button>
-      </div>
+          <button
+            type="button"
+            data-testid="test-todo-cancel-button"
+            class="btn btn-cancel"
+            onclick="cancelEdit()"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            data-testid="test-todo-save-button"
+            class="btn btn-save"
+          >
+            <img src="/images//diskette_922476.png" alt="save-icon">
+            Save
+          </button>
+        </div>
+      </form>
     </article>
     <script src="/index.js"></script>
   </body>
